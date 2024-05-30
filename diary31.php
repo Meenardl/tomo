@@ -34,7 +34,6 @@ $user_id = $_SESSION['user_id'];
 $month = $_SESSION['month'];
 $day = $_SESSION['day'];
 
-// Fetch existing journal entry if any
 $existing_journal_sql = "SELECT * FROM journal WHERE user_id = '$user_id' AND month = '$month' AND day = '$day'";
 $existing_journal_result = $conn->query($existing_journal_sql);
 $existing_journal = $existing_journal_result->fetch_assoc();
@@ -51,7 +50,7 @@ function processForm() {
         $emoji = isset($_POST['mood']) ? $conn->real_escape_string($_POST['mood']) : '';
 
         if ($existing_journal) {
-            // Update existing entry
+            // Update data
             $update_journal_sql = "UPDATE journal SET answer_one = '$answer_one', answer_two = '$answer_two', 
                                    answer_three = '$answer_three', answer_four = '$answer_four', answer_five = '$answer_five'
                                    WHERE user_id = '$user_id' AND month = '$month' AND day = '$day'";
@@ -69,7 +68,7 @@ function processForm() {
                 }
             }
         } else {
-            // Insert new entry
+            // Insert data baru
             $insert_journal_sql = "INSERT INTO journal (user_id, month, day, answer_one, answer_two, answer_three, answer_four, answer_five) 
                                    VALUES ('$user_id', '$month', '$day', '$answer_one', '$answer_two', '$answer_three', '$answer_four', '$answer_five')";
             if ($conn->query($insert_journal_sql) === TRUE) {
@@ -87,7 +86,6 @@ function processForm() {
             }
         }
 
-        // Fetch the updated journal entry
         $existing_journal_sql = "SELECT * FROM journal WHERE user_id = '$user_id' AND month = '$month' AND day = '$day'";
         $existing_journal_result = $conn->query($existing_journal_sql);
         $existing_journal = $existing_journal_result->fetch_assoc();
