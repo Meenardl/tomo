@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password</title>
+    <link rel="stylesheet" href="forgot-create.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+          <img src="forgotpass.jpeg" alt="">
+          <h1>Forgot Password?</h1>
+          <p>Enter the email address associated with your account</p>
+          <form action="forgotpass.php" method="post"> <!-- Ubah action ke forgotpass.php -->
+            <div class="input-box">
+              <div class="input-field">
+              <i class='bx bxs-envelope'></i>
+              <input type="email" placeholder="xxx@gmail.com" id="email" name="email" required>
+            </div>
+            <button class="next-btn" type="submit" name="submit_email">Next</button>
+          </form>
+        </div>
+      </div>
+</body>
+</html>
