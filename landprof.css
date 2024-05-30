@@ -1,0 +1,382 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f6f6f6;
+}
+  
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f6f6f6;
+    padding: 10px 30px;
+    position: relative;
+}
+  
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+  
+.navbar-logo img {
+    height: 65px; /* Adjustable logo height using CSS variable */
+    margin-right: 10px; /* Space between image and text */
+}
+  
+.navbar-text {
+    display: flex;
+    flex-direction: column;
+}
+  
+.navbar-text .title {
+    font-size: 20px;
+    font-weight: bold;
+}
+  
+.navbar-text .subtitle {
+    font-size: 12px;
+}
+  
+.navbar-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    transition: transform 0.3s ease;
+}
+  
+.navbar-menu a {
+    color: #ffc033;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.all{
+    display: flex;
+    gap:30px;
+}
+
+.profile-icon-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+  
+.profile-icon-container img {
+    height: 45px; /* Adjust the height as needed */
+    border-radius: 50%;
+    cursor: pointer;
+}
+  
+.navbar-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+  
+.navbar-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: #ffc033;
+    margin: 4px 0;
+}
+
+.menu {
+    position: fixed;
+    top: 70px;
+    right: -250px;
+    width: 300px;
+    z-index: 1;
+    transition: right 0.3s ease;
+}
+  
+.menu.open-class {
+   right: 0;
+}
+  
+.sub-menu{
+    background-color: #ffc033;
+    padding: 20px;
+    margin-left:110px;
+    height: 620px;
+}
+  
+.info{
+    display: flex;
+    align-items: center;
+}
+
+.info h2{
+    font-weight: 500; /*disini kalo mau ubah username jadi bold*/
+    font-size: large;
+}
+  
+.info img{
+    width:45px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+  
+.sub-menu hr{
+    border: 0;
+    height: 1px;
+    width:100%;
+    background-color: aliceblue;
+    margin: 15px 0 10px;
+}
+  
+.icon{
+    font-size: 30px;
+    margin-right: 15px;
+}
+  
+.sub-menu-link{
+    display: flex ;
+    align-items: center;
+    color: black;
+    font-size: 15px;
+    text-decoration: none;
+}
+  
+.sub-menu-link p{
+    width: 100%;
+}
+  
+.sub-menu-link span{
+    transition: transform 0.5s;
+    text-decoration: none;
+}
+  
+.sub-menu-link:hover span{
+    transform: translateX(5px);
+}
+  
+.sub-menu-link:hover p{
+    font-weight: 600;
+}
+
+
+.kotak {
+    width: 70vw; 
+    height: 70vh; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute; 
+    background: #FBD684; 
+    border-radius: 30px;
+}
+
+.kotak2{
+    width: 66vw; 
+    height:64vh; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;  
+    border-radius: 30px;
+    border: 8px black solid;
+}
+
+.month {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap:4vw 3vw;
+    margin-right: 90px;
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.tulisan{
+    position: absolute;
+    font-size: 3.1vw;
+    top: 25%;
+    left: 50%;
+    text-align: center;
+    white-space: nowrap;
+    transform: translate(-50%, -50%);
+}
+
+.signin-btn {
+    background-color: #f6f6f6;
+    color: black;
+    border-radius: 10px;
+    border-color: #ffc033;
+    padding: 5px 15px; 
+    cursor: pointer;
+    margin-right: 20px;
+}
+  
+.signup-btn{
+    background-color: #ffc033;
+    color: white; 
+    border: none;
+    border-radius: 10px;
+    padding: 7px 15px;
+    cursor: pointer;
+}
+  
+.signin-btn:hover {
+    background-color: #e6a82e;
+}
+  
+.signup-btn:hover{
+    background-color: #e6a82e;
+}
+
+.month button{
+    width:8vw;
+    height: 9vh;
+    padding: 5px;
+    border:2px #171615 solid;
+    border-radius: 5px;
+    font-size: large;
+}
+
+button:hover {
+    background-color: #ffc033;
+    cursor: pointer;
+   
+}
+
+footer { 
+    position: absolute;
+    width: 100%; 
+    height: 60px; 
+    background-color: #ffc033;
+    bottom: 0;
+}
+
+@media (max-width: 768px){
+    .kotak{
+        width: 66vw; 
+        height: 58vh;
+    }
+    .kotak2{
+        width: 62vw; 
+        height:52vh;
+        border: 5px black solid;
+    }
+    .month{
+        gap:3vw 2vw;
+        top: 55%;
+    }
+    .tulisan{
+        font-size: 2.6vw;
+        top: 30%;
+    }
+    .sub-menu{
+        height: 530px;
+    }
+    
+}
+@media (max-width: 550px) {
+    .signin-btn{
+        position: relative;
+        left: 20%;
+    }
+    ul{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        margin-right: 10px;
+    }
+    .navbar{
+        padding: 10px 20px;
+    }
+    .all{
+        gap:15px;
+    }
+    .kotak{
+        width: 300px; 
+        height: 58vh;
+        border-radius: 20px;
+    }
+    .kotak2{
+        width: 60vw; 
+        height:52vh;
+        border: 5px black solid;
+        border-radius: 20px;
+    }
+    .month{
+        gap:5vw 4vw;
+        top: 55%;
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+    .month button{
+        width:15vw;
+        height: 7vh;
+        font-size: 10px;
+    }
+    .tulisan{
+        font-size: 2.6vw;
+        top: 28%;
+    }
+    .navbar-menu {
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        height: 530px;
+        position: fixed;
+        top: 70px; /* Adjust this value to move the menu down */
+        right: -250px;
+        background-color: #ffc033;
+        padding-top: 20px; /* Adjust the padding as needed */
+        z-index: 1;
+        transform: translateX(0);
+        transition: right 0.3s ease;
+    }
+    .navbar-toggle {
+        display: flex;
+        justify-content: center;
+    } 
+    .navbar-menu.active {
+        right: 0;
+    }
+    .navbar-menu a{
+        color: black;
+    }
+}
+  
+@media (max-width: 375px){
+    .navbar-logo img{
+      height: 50px;
+    }
+    .navbar-text .title{
+      font-size: 5vw ;
+    }
+    .navbar-text .subtitle{
+      font-size: 8px;
+    }
+    .profile-icon-container {
+        display: block; /* Ensure the profile icon is visible in mobile view */
+    }
+    .kotak{
+        width: 270px; 
+    }
+    .tulisan{
+        font-size: 2.8vw;
+    }
+}
+
+@media (max-width: 320px){
+    .kotak{
+        width: 250px;
+    }
+    .kotak2{
+        width: 63vw;
+    }
+    .signin-btn{
+        position: relative;
+        left: 24%;
+        font-size: 9.9px;
+    }
+    .signup-btn{
+        font-size: 9.9px;
+    }
+}
+
+/* Sesuaikan tampilan ikon home dan statistik dalam toggle pada saat hover */
+

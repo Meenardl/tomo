@@ -1,0 +1,703 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f6f6f6;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f6f6f6;
+    padding: 10px 30px;
+    position: relative;
+  }
+  
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-logo img {
+    height: 65px; /* Adjustable logo height using CSS variable */
+    margin-right: 10px; /* Space between image and text */
+  }
+  
+  .navbar-text {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .navbar-text .title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .navbar-text .subtitle {
+    font-size: 12px;
+  }
+  
+  .navbar-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    transition: transform 0.3s ease;
+  }
+  
+  .navbar-menu a {
+    color: #ffc033;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  .all{
+    display: flex;
+    gap:30px;
+  }
+  
+  .profile-icon-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  .profile-icon-container img {
+    height: 45px; /* Adjust the height as needed */
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .navbar-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .navbar-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: #ffc033;
+    margin: 4px 0;
+  }
+  
+  .menu {
+    position: fixed;
+    top: 70px;
+    right: -250px;
+    width: 300px;
+    z-index: 1;
+    transition: right 0.3s ease;
+  }
+  
+  .menu.open-class {
+   right: 0;
+  }
+  
+  .sub-menu{
+    background-color: #ffc033;
+    padding: 20px;
+    margin-left:110px;
+    height: 620px;
+  }
+  
+  .info{
+    display: flex;
+    align-items: center;
+  }
+  
+  .info h2{
+    font-weight: 500; /*disini kalo mau ubah username jadi bold*/
+    font-size: large;
+  }
+  
+  .info img{
+    width:45px;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+  
+  .sub-menu hr{
+    border: 0;
+    height: 1px;
+    width:100%;
+    background-color: aliceblue;
+    margin: 15px 0 10px;
+  }
+  
+  .icon{
+    font-size: 30px;
+    margin-right: 15px;
+  }
+  
+  .sub-menu-link{
+    display: flex ;
+    align-items: center;
+    color: black;
+    font-size: 15px;
+    text-decoration: none;
+  }
+  
+  .sub-menu-link p{
+    width: 100%;
+  }
+  
+  .sub-menu-link span{
+    transition: transform 0.5s;
+    text-decoration: none;
+  }
+  
+  .sub-menu-link:hover span{
+    transform: translateX(5px);
+  }
+  
+  .sub-menu-link:hover p{
+    font-weight: 600;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background-color: #f6f6f6;
+    padding-top: 2%;
+  }
+  
+  footer { 
+    position: fixed;
+    width: 100%; 
+    height: 60px; 
+    background-color: #ffc033;
+    bottom: 0;
+  }
+  
+  .allbar{
+    position: relative;
+    width: 700px;
+    height: 500px;
+    top: 30%;
+    left: 3%;
+    padding: 20px;
+    border: 10px solid;
+    border-top: none;    
+    border-right: none;
+    display: flex;
+  }
+  
+  .y-label {
+    position: relative;
+    list-style-type: none;
+    padding: 0;
+    top: -3%;
+    margin-left: -70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 20px;
+     /* Menghilangkan margin untuk menghindari jarak tambahan */
+  }
+  
+  .y-label li {
+    margin-bottom: 59px; /* Atur jarak antar item dalam y-label */
+  }
+  
+  .line-y {
+    position: relative;
+    list-style-type: none;
+    padding: 0;
+    top: 2.5%;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 78px;
+  }
+  
+  .line-y .line {
+    width: 30px;
+    height: 10px;
+    background-color: black;
+  }
+  
+  .line-x {
+    position: relative;
+    list-style-type: none;
+    padding: 0;
+    margin-top: 70%;
+    left: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 134.4px;
+  }
+  
+  .line-x .line {
+    width: 10px;
+    height: 30px;
+    background-color: black;
+  }
+  
+  .barshappy, .barsangry, .barsanxious, .barstired, .barssad{
+    position: relative;
+    list-style-type: none;
+    padding: 0;
+    top: 4%;
+    left: -79%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 62.9px;
+    align-items: flex-end;
+  }
+  
+  .bar1 {
+    width: 80px;
+    background-color: #ffc033;
+  }
+  
+  .bar2 {
+    width: 80px;
+    background-color: #D52F24;
+  }
+  
+  .bar3 {
+    width: 80px;
+    background-color: #404040;
+    margin-left: 5px;
+  }
+  
+  .bar4 {
+    width: 80px;
+    background-color: #9747FF;
+    margin-left: 5px;
+  }
+  
+  .bar5 {
+    width: 80px;
+    background-color: #2C8CFD;
+  }
+  
+  
+  .emotions {
+    position: relative;
+    padding: 0;
+    top: 108%;
+    left: -174%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap:75px;
+  }
+  
+  .emotion1 img {
+      width: 80px;
+      height: 80px;
+  }
+  
+  .emotion2 img{
+      width:68px;
+      height: 80px;
+  }
+  
+  .quotehappy, .quotesad, .quoteanxious, .quoteangry, .quotetired{
+    position: absolute;
+    top: 130%;
+    left: 0%;
+    padding: 20px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background-color: #fff;
+    display: inline-block;
+    box-sizing: border-box;
+  }
+  
+  .quotehappy p, .quotesad p, .quoteanxious p, .quoteangry p, .quotetired p{
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+    text-align: center;
+    line-height: 27px;
+  }
+  
+  @media (max-width: 1339px){
+    footer{
+      bottom: -65%;
+    }
+    .container{
+      padding-top: 40px;
+    }
+  }
+  
+  @media (max-width: 900px){
+    .container{
+      padding: 5%;
+    }
+    .allbar{
+      width: 450px;
+      height: 400px;
+      top: 30%;
+      left: 3%;
+    }
+    
+    .y-label {
+      top: -4%;
+      margin-left: -70px;
+      font-size: 20px;
+    }
+    
+    .y-label li {
+      margin-bottom: 40px; 
+    }
+    
+    .line-x {
+      margin-top: 87%;
+      left: 15.1%;
+      gap: 90px;
+    }
+    .barshappy, .barsangry, .barsanxious, .barssad, .barstired{
+      top: 5%;
+      left: -88%;
+      gap: 60px;
+    }
+    .bar1 {
+      width: 35px;
+    }
+    .bar2{
+      width: 35px;
+    }
+    .bar3{
+      width: 35px;
+    }
+    .bar4{
+      width: 35px;
+    }
+    .bar5{
+      width: 35px;
+    }
+    .emotions {
+      top: 108%;
+      left: -185%;
+      gap:45px;
+    }
+    .emotion1 img {
+      width: 60px;
+      height: 60px;
+    }
+    
+    .emotion2 img{
+      width:48px;
+      height: 60px;
+    }
+  
+    .quotehappy p, .quotesad{
+      font-size: 18px;
+    }
+  }
+  @media (max-width: 768px) {
+    footer{
+      bottom: -40%;
+    }
+  }
+  @media (max-width: 767px) {
+    footer{
+      bottom: -35%;
+    }
+    .allbar{
+      width: 350px;
+      height: 350px;
+      top: 30%;
+      left: 3%;
+    }
+    .y-label li {
+      margin-bottom: 10px; 
+    }
+    .line-x {
+      margin-top:100%;
+      left: 15.1%;
+      gap: 70px;
+    }
+    .line-y{
+      margin-bottom: 60px;
+      top: 3%;
+    }
+    
+    .barshappy, .barsanxious, .barssad, .barstired, .barsangry{
+      top: 6%;
+      left: -93%;
+      gap: 44px;
+    }
+    
+    .bar1 {
+      width: 33px;
+    }
+  
+    .bar2{
+      width: 33px;
+    }
+    
+    .bar3{
+      width: 33px;
+    }
+  
+    .bar4{
+      width: 33px;
+    }
+  
+    .bar5{
+      width: 33px;
+    }
+    .emotions {
+      top: 110%;
+      left: -198%;
+      gap:29px;
+    }
+    
+    .emotion1 img {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .emotion2 img{
+        width:48px;
+        height: 60px;
+    }
+    .quotehappy, .quotesad{
+      height: 150px;
+    }
+    .quoteanxious, .quotetiredy{
+      height: 130px;
+    }
+    .quoteangry{
+      height: 110px;
+    }
+    .quotehappy p, .quotesad p, .quoteangry p, .quotetired p, .quoteanxious p{
+      font-size: 15px;
+      line-height: 20px;
+    }
+    .quotesad p{
+      margin-top: -5px;
+    }
+  }
+  @media (max-width: 500px) {
+    .navbar-menu {
+      display: flex;
+      flex-direction: column;
+      width: 200px;
+      height: 530px;
+      position: fixed;
+      top: 70px; 
+      right: -250px;
+      background-color: #ffc033;
+      padding-top: 20px; 
+      z-index: 1;
+      transform: translateX(0);
+       transition: right 0.3s ease;
+    }
+    .navbar-toggle {
+      display: flex;
+      justify-content: center;
+    } 
+    .navbar-menu.active {
+      right: 0;
+    }
+    .navbar-menu a{
+      color: black;
+    }
+    footer{
+      bottom: -10%;
+    }
+    .container{
+      padding: 10%;
+    }
+    .allbar{
+      width: 230px;
+      height: 250px;
+      top: 30%;
+      left: 5%;
+    }
+    
+    .y-label {
+      top: -4%;
+      margin-left: -65px;
+      font-size: 15px;
+    }
+    
+    .y-label li {
+      margin-bottom:25px; 
+    }
+  
+    .line-y .line {
+      width: 30px;
+      height: 8px;
+      background-color: black;
+    }
+    .line-x .line {
+      width: 8px;
+      height: 23px;
+      background-color: black;
+    }
+    
+    .line-x {
+      margin-top: 108%;
+      left: 15.8%;
+      gap: 45.4px;
+    }
+  
+    .line-y{
+      margin-bottom: 30px;
+    }
+    
+    .barshappy, .barsangry, .barsanxious, .barssad, .barstired{
+      top: 8%;
+      left: -95%;
+      gap: 31px;
+    }
+    
+    
+    .bar1 {
+      width: 20px;
+    }
+  
+    .bar2{
+      width: 20px;
+    }
+    
+    .bar3{
+      width: 20px;
+    }
+  
+    .bar4{
+      width: 20px;
+    }
+  
+    .bar5{
+      width: 20px;
+    }
+    .emotions {
+      top: 115%;
+      left: -202%;
+      gap:20px;
+    }
+    
+    .emotion1 img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .emotion2 img{
+        width:32px;
+        height: 40px;
+    }
+    .quotehappy, .quotesad, .quoteangry, .quotetired, .quoteanxious{
+      left: -12%;
+    }
+    .quotehappy p, .quotesad p, .quoteangry p, .quotetired p, .quoteanxious p{
+      font-size: 12px;
+    }
+    .quotesad{
+      padding: 20px;
+      height: 55%;
+    }
+    .quotetired p, .quoteangry p{
+      margin-top: -6px;
+    }
+    
+  }
+    
+  @media (max-width: 320px){
+    .all{
+      gap:15px;
+    }
+      .navbar-logo img{
+        height: 50px;
+      }
+      .navbar-text .title{
+        font-size: 5vw ;
+      }
+      .navbar-text .subtitle{
+        font-size: 8px;
+      }
+      .profile-icon-container {
+          display: block; 
+      }
+      .container{
+        padding-top: 50px;
+      }
+      .allbar{
+        width: 200px;
+        height: 250px;
+        left: 5%;
+      }
+      
+      .y-label {
+        top: -4%;
+        margin-left: -61px;
+        font-size: 15px;
+      }
+      
+      .y-label li {
+        margin-bottom:25px; 
+      }
+    
+      .line-y .line {
+        width: 20px;
+        height: 5px;
+        background-color: black;
+      }
+      .line-x .line {
+        width: 5px;
+        height: 23px;
+        background-color: black;
+      }  
+      .line-x {
+        margin-top: 125%;
+        left: 18.7%;
+        gap: 43px;
+      }
+      .line-y{
+        margin-bottom: 30px;
+      }   
+      .barshappy, .barsangry, .barsanxious, .barssad, .barstired{
+        top: 8%;
+        left: -95%;
+        gap: 28px;
+      }
+      .bar1 {
+        width: 18px;
+        margin-right: 2px;
+      }
+      .bar2{
+        width: 18px;
+      }
+      .bar3{
+        width: 18px;
+        margin-left: 2px;
+      }
+      .bar4{
+        width: 18px;
+      }
+    
+      .bar5{
+        width: 18px;
+      }
+      .emotions {
+        top: 115%;
+        left: -206%;
+        gap:22px;
+      }
+      .emotion1 img {
+          width: 32px;
+          height: 35px;
+      }
+      .emotion2 img{
+          width:26px;
+          height: 35px;
+      }
+      .quotesad{
+        padding: 20px;
+        height: 60%;
+      }
+      .quoteanxious p{
+        margin-top: -6px;
+      }
+  }
+  

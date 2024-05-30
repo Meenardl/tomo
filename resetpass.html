@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Password</title>
+    <link rel="stylesheet" href="forgot-create.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+          <img src="jur-create.jpeg" class="create" alt="">
+          <h2>Create New Password</h2>
+          <form action="resetpass.php" method="post"> <!-- Ubah action ke resetpass.php -->
+            <div class="input-box2">
+                <div class="input-field">
+                    <i class='bx bx-lock-alt'></i>
+                    <input type="password" placeholder="Password" id="password" name="password" required>
+                    <span class="eye" onclick="myFunction()">
+                      <i id="show" class='bx bxs-show'></i>
+                      <i id="hide" class='bx bxs-low-vision'></i>
+                    </span>
+                  </div>
+                <button class="next-btn" type="submit" name="reset_password">Confirm</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    <script>
+        function myFunction(){
+          var x = document.getElementById("password");
+          var y = document.getElementById("show");
+          var z = document.getElementById("hide");
+
+          if(x.type == 'password'){
+            x.type = "text";
+            y.style.display = "block";
+            z.style.display = "none";
+          } else {
+            x.type = "password";
+            y.style.display = "none";
+            z.style.display = "block";
+          }
+        }
+    </script>
+</body>
+</html>

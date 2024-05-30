@@ -1,0 +1,140 @@
+<?php
+session_start();
+
+function connectToDatabase() {
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "tomo";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Koneksi gagal: " . $conn->connect_error);
+    }
+    return $conn;
+}
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: signin.php");
+    exit();
+}
+
+$username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Username';
+
+if (isset($_GET['month'])) {
+    $_SESSION['month'] = (int)$_GET['month'];
+}
+
+$user_id = $_SESSION['user_id'];
+$month = $_SESSION['month'];
+
+$conn = connectToDatabase();
+$sql = "SELECT day FROM journal WHERE user_id = '$user_id' AND month = '$month'";
+$result = $conn->query($sql);
+
+$days_with_entries = [];
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $days_with_entries[] = (int)$row['day'];
+    }
+}
+$conn->close();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily</title>
+    <link rel="stylesheet" href="harian.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="TomoHi.jpeg">
+            <div class="navbar-text">
+                <span class="title">Hi Friend!</span>
+                <span class="subtitle">Let's talk with Tomo</span>
+            </div>
+        </div>
+        
+        <div class="all">
+            <div class="navbar-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="navbar-menu" id="navbar-menu">
+                <a href="month.php" class="home">Home</a>
+                <a href="statistic.php" class="stat">Statistic</a>   
+            </div>
+            <div class="profile-icon-container" id="profile-icon-container">
+                <img src="kosong.jpg" alt="Profile" class="profile-img" id="profile-icon">
+                <div class="menu" id="menu">
+                    <div class="sub-menu">
+                        <div class="info">
+                            <img src="kosong.jpg" class="prof-menu">
+                            <h2><?php echo $username; ?></h2> <!--nanti ubah biar otomatis nama username pas login-->
+                        </div>
+                        <hr>
+        
+                        <a href="profile.php" class="sub-menu-link">
+                         <i class='bx bxs-user icon'></i>
+                         <p>Edit Profil</p>
+                         <span></span>
+                        </a>
+        
+                        <a href="signout.php" class="sub-menu-link">
+                         <i class='bx bxs-log-out icon'></i>
+                         <p>Logout</p>
+                         <span></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="kotak"></div>
+    <div class="kotak2"></div>
+    <p class="tulisan"> LET'S FILL YOUR DAYS WITH STORY </p>
+    <div class="day">
+        <?php for ($i = 1; $i <= 30; $i++): ?>
+            <?php $buttonColor = in_array($i, $days_with_entries) ? 'background-color: #FFC033;' : ''; ?>
+            <button style="<?php echo $buttonColor; ?>" onclick="window.location.href='diary30.php?day=<?php echo $i; ?>'"> <?php echo $i; ?></button>
+        <?php endfor; ?>
+    </div>
+    
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navbarMenu = document.getElementById('navbar-menu');
+        const profileIcon = document.getElementById('profile-icon');
+        const menu = document.getElementById("menu");
+
+        mobileMenu.addEventListener('click', () => {
+            navbarMenu.classList.toggle('active');
+            menu.classList.remove('open-class'); // Tutup menu profil saat toggle menu diklik
+        });
+
+        profileIcon.addEventListener('click', () => {
+            menu.classList.toggle('open-class'); // Toggle menu profil saat ikon profil diklik
+            navbarMenu.classList.remove('active'); // Tutup toggle menu saat ikon profil diklik
+        });
+
+        // Tutup menu profil saat pengguna mengklik di luar area menu
+        window.onclick = function(event) {
+            if (!event.target.matches('#profile-icon')) {
+                if (menu.classList.contains('open-class')) {
+                    menu.classList.remove('open-class');
+                }
+            }
+        };
+    </script>
+    <footer></footer>
+</body>
+</html>
