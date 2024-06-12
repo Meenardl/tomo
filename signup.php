@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['signup'])) {
         <img src="Tomo.jpeg" alt="">
       </div>
       <h1>Sign Up</h1>
-      <p>Welcome! Register a Journalmind account to start creating</p>
+      <p>Welcome! Register a Journalmind account to start creating your own journal</p>
       <?php
       if (!empty($error_message)) {
           echo "<p style='color:red;'>$error_message</p>";
