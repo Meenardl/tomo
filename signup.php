@@ -22,15 +22,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['signup'])) {
     $email = $_POST['email'];
 
     if ($password !== $conf_password) {
-        echo "Password dan konfirmasi password tidak cocok.";
+      $error_message = "Password dan konfirmasi password tidak cocok.";
     } else {
-        $sql = "INSERT INTO user (username, password, email) VALUES ('$username', '$password', '$email')";
-        if ($conn->query($sql) === TRUE) {
-            header("Location: signin.php"); // Arahkan ke halaman login setelah berhasil registrasi
-            exit();
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
+      $emailCheckQuery = "SELECT * FROM user WHERE email = '$email'";
+      $result = $conn->query($emailCheckQuery);
+      
+      if ($result->num_rows > 0) {
+        $error_message = "Email sudah terdaftar, silahkan gunakan email lain.";
+      } else {
+          $sql = "INSERT INTO user (username, password, email) VALUES ('$username', '$password', '$email')";
+          if ($conn->query($sql) === TRUE) {
+              header("Location: signin.php"); // Arahkan ke halaman login setelah berhasil registrasi
+              exit();
+          } else {
+              echo "Error: " . $sql . "<br>" . $conn->error;
+          }
+      }
     }
     $conn->close();
 } else {
@@ -53,7 +60,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['signup'])) {
         <img src="Tomo.jpeg" alt="">
       </div>
       <h1>Sign Up</h1>
-      <p>Welcome back. Sign into your Journalmind account to start creating</p>
+      <p>Welcome! Register a Journalmind account to start creating</p>
+      <?php
+      if (!empty($error_message)) {
+          echo "<p style='color:red;'>$error_message</p>";
+      }
+      ?>
       <form action="signup.php" method="post"> <!-- Ubah action ke signup.php -->
         <div class="input-field2">
           <i class='bx bx-user'></i>
